@@ -184,7 +184,10 @@ export default function MenuPage() {
     }
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150; // Offset for sticky nav
+      // Offset for sticky navs (Header + Category Nav)
+      // Mobile: 96 + 61 = 157, Desktop: 112 + 61 = 173
+      // Use 180 as a safe offset to trigger active state correctly
+      const scrollPosition = window.scrollY + 180; 
 
       // Show/hide back to top button
       setShowBackToTop(window.scrollY > 500);
@@ -213,7 +216,9 @@ export default function MenuPage() {
   const scrollToSection = (sectionId: string) => {
     const element = sectionRefs.current[sectionId];
     if (element) {
-      const offset = 145; // Height of sticky nav + some padding
+      // Determine offset based on screen width (lg breakpoint is 1024px)
+      const isDesktop = window.innerWidth >= 1024;
+      const offset = isDesktop ? 176 : 160; // scroll-mt-44 vs scroll-mt-40
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({ top: elementPosition, behavior: "smooth" });
     }
@@ -248,7 +253,7 @@ export default function MenuPage() {
       </section>
 
       {/* Sticky Category Navigation */}
-      <nav className="sticky top-20 z-40 bg-[#0a0a0a] border-y border-white/10">
+      <nav className="sticky top-24 lg:top-28 z-40 bg-[#0a0a0a] border-y border-white/10">
         <div className="container mx-auto">
           <div className="overflow-x-auto scrollbar-hide px-4">
             <div className="flex min-w-max py-3 gap-1">
@@ -279,18 +284,18 @@ export default function MenuPage() {
             ref={(el) => {
               sectionRefs.current[section.id] = el;
             }}
-            className="scroll-mt-36"
+            className="scroll-mt-40 lg:scroll-mt-44"
           >
             {/* Section Header */}
-            <div className="sticky top-[141px] z-30 bg-[#0a0a0a] border-b border-white/5">
-              <div className="container mx-auto px-4 py-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-1 h-8 bg-primary rounded-full" />
-                  <div className="flex flex-col justify-center py-1">
-                    <h2 className="font-serif text-2xl text-white leading-none mb-1">
+            <div className="sticky top-[157px] lg:top-[173px] z-30 bg-[#0a0a0a] border-b border-white/5">
+              <div className="container mx-auto px-4 py-2.5">
+                <div className="flex items-center gap-3">
+                  <div className="w-[3px] h-7 bg-primary rounded-full" />
+                  <div className="flex flex-col justify-center">
+                    <h2 className="font-serif text-xl text-white leading-none mb-1">
                       {section.title}
                     </h2>
-                    <p className="text-white/40 text-xs tracking-widest uppercase leading-none">
+                    <p className="text-white/40 text-[10px] tracking-[0.2em] uppercase leading-none">
                       {section.titleEn}
                     </p>
                   </div>

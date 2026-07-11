@@ -45,14 +45,14 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24 lg:h-28">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/nhan-sushi-logo-transparent.png"
                 alt="Nhan Sushi Hanoi"
                 width={160}
-                height={64}
-                className="h-10 w-auto md:h-12 lg:h-14 transition-transform group-hover:scale-105"
+                height={96}
+                className="h-16 w-auto md:h-20 lg:h-24 transition-transform group-hover:scale-105"
               />
             </Link>
 
