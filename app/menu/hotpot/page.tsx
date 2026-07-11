@@ -3,8 +3,8 @@ import { MenuHero } from "@/components/menu/menu-hero"
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery"
 
 const hotpotPages = [
-  { src: "/images/unnamed-2847-29.jpeg", alt: "Nabemono - Lẩu Bò Shabu Shabu, Sukiyaki", pageNumber: 47 },
-  { src: "/images/unnamed-2848-29.png", alt: "Nabemono - Lẩu Đầu Cá Hồi, Hải Sản, Đậu Hũ", pageNumber: 48 },
+  { src: "/images/Menu_Nhan_2025-47.webp", alt: "Nabemono - Lẩu Bò Shabu Shabu, Sukiyaki", pageNumber: 47 },
+  { src: "/images/Menu_Nhan_2025-48.webp", alt: "Nabemono - Lẩu Đầu Cá Hồi, Hải Sản, Đậu Hũ", pageNumber: 48 },
 ]
 
 export default function HotpotPage() {
@@ -13,7 +13,7 @@ export default function HotpotPage() {
       <MenuHero
         title="Lẩu"
         titleEn="NABEMONO"
-        image="/images/unnamed-2847-29.jpeg"
+        image="/images/Menu_Nhan_2025-47.webp"
         description="Lẩu Nhật Bản nóng hổi - Shabu Shabu, Sukiyaki"
       />
 

@@ -51,7 +51,7 @@ export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
               <img
                 src={page.src || "/placeholder.svg"}
                 alt={page.alt}
-                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-auto object-contain"
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

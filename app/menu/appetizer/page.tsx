@@ -3,8 +3,8 @@ import { MenuHero } from "@/components/menu/menu-hero"
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery"
 
 const appetizerPages = [
-  { src: "/images/unnamed-289-29.png", alt: "Khai Vị - Sò, Bạch Tuộc, Trứng Cá Hồi", pageNumber: 9 },
-  { src: "/images/unnamed-2810-29.png", alt: "Khai Vị - Sò Điệp, Bạch Tuộc, Trứng Chiên, Măng Tây", pageNumber: 10 },
+  { src: "/images/Menu_Nhan_2025-09.webp", alt: "Khai Vị - Sò, Bạch Tuộc, Trứng Cá Hồi", pageNumber: 9 },
+  { src: "/images/Menu_Nhan_2025-10.webp", alt: "Khai Vị - Sò Điệp, Bạch Tuộc, Trứng Chiên, Măng Tây", pageNumber: 10 },
 ]
 
 export default function AppetizerPage() {
@@ -13,7 +13,7 @@ export default function AppetizerPage() {
       <MenuHero
         title="Khai Vị"
         titleEn="APPETIZER"
-        image="/images/unnamed-289-29.png"
+        image="/images/Menu_Nhan_2025-09.webp"
         description="Những món khai vị tinh tế mở đầu bữa ăn"
       />
 

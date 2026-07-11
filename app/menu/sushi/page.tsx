@@ -3,14 +3,14 @@ import { MenuHero } from "@/components/menu/menu-hero"
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery"
 
 const sushiPages = [
-  { src: "/images/unnamed-2839-29.jpg", alt: "Maki Mono & Sushi Roll Cover", pageNumber: 39 },
-  { src: "/images/unnamed-2840-29.jpg", alt: "Cơm Cuộn - Sumo, Cá Ngừ Cay, Lươn Bơ", pageNumber: 40 },
-  { src: "/images/unnamed-2841-29.png", alt: "Cơm Cuộn - Tempura, Cua Lột, Cá Hồi", pageNumber: 41 },
-  { src: "/images/unnamed-2842-29.jpg", alt: "Hải Sản Cuộn, Maki Sushi", pageNumber: 42 },
-  { src: "/images/unnamed-2843-29.jpg", alt: "Nigiri Sushi Cover", pageNumber: 43 },
-  { src: "/images/unnamed-2844-29.jpg", alt: "Temaki & Set Sushi", pageNumber: 44 },
-  { src: "/images/unnamed-2845-29.jpg", alt: "Nigiri Sushi Menu", pageNumber: 45 },
-  { src: "/images/unnamed-2846-29.png", alt: "Nigiri & Gunkan", pageNumber: 46 },
+  { src: "/images/Menu_Nhan_2025-39.webp", alt: "Maki Mono & Sushi Roll Cover", pageNumber: 39 },
+  { src: "/images/Menu_Nhan_2025-40.webp", alt: "Cơm Cuộn - Sumo, Cá Ngừ Cay, Lươn Bơ", pageNumber: 40 },
+  { src: "/images/Menu_Nhan_2025-41.webp", alt: "Cơm Cuộn - Tempura, Cua Lột, Cá Hồi", pageNumber: 41 },
+  { src: "/images/Menu_Nhan_2025-42.webp", alt: "Hải Sản Cuộn, Maki Sushi", pageNumber: 42 },
+  { src: "/images/Menu_Nhan_2025-43.webp", alt: "Nigiri Sushi Cover", pageNumber: 43 },
+  { src: "/images/Menu_Nhan_2025-44.webp", alt: "Temaki & Set Sushi", pageNumber: 44 },
+  { src: "/images/Menu_Nhan_2025-45.webp", alt: "Nigiri Sushi Menu", pageNumber: 45 },
+  { src: "/images/Menu_Nhan_2025-46.webp", alt: "Nigiri & Gunkan", pageNumber: 46 },
 ]
 
 export default function SushiPage() {
@@ -19,7 +19,7 @@ export default function SushiPage() {
       <MenuHero
         title="Sushi"
         titleEn="NIGIRI SUSHI"
-        image="/images/unnamed-2839-29.jpg"
+        image="/images/Menu_Nhan_2025-39.webp"
         description="Sushi truyền thống Nhật Bản với nguyên liệu tươi ngon nhất"
       />
 

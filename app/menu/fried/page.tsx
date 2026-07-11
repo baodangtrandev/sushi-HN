@@ -3,10 +3,10 @@ import { MenuHero } from "@/components/menu/menu-hero"
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery"
 
 const friedPages = [
-  { src: "/images/unnamed-2831-29.jpg", alt: "Món Chiên - Tôm Tempura", pageNumber: 31 },
-  { src: "/images/unnamed-2832-29.jpg", alt: "Món Chiên - Tempura, Gà Chiên", pageNumber: 32 },
-  { src: "/images/unnamed-2833-29.jpg", alt: "Món Nóng - Súp Bào Ngư, Súp Miso", pageNumber: 33 },
-  { src: "/images/unnamed-2834-29.jpg", alt: "Món Nóng - Trứng Hấp Chawanmushi", pageNumber: 34 },
+  { src: "/images/Menu_Nhan_2025-31.webp", alt: "Món Chiên - Tôm Tempura", pageNumber: 31 },
+  { src: "/images/Menu_Nhan_2025-32.webp", alt: "Món Chiên - Tempura, Gà Chiên", pageNumber: 32 },
+  { src: "/images/Menu_Nhan_2025-33.webp", alt: "Món Nóng - Súp Bào Ngư, Súp Miso", pageNumber: 33 },
+  { src: "/images/Menu_Nhan_2025-34.webp", alt: "Món Nóng - Trứng Hấp Chawanmushi", pageNumber: 34 },
 ]
 
 export default function FriedPage() {
@@ -15,7 +15,7 @@ export default function FriedPage() {
       <MenuHero
         title="Món Chiên"
         titleEn="DEEP-FRIED DISHES"
-        image="/images/unnamed-2831-29.jpg"
+        image="/images/Menu_Nhan_2025-31.webp"
         description="Tempura và các món chiên giòn kiểu Nhật"
       />
 

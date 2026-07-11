@@ -4,8 +4,14 @@ import { Playfair_Display, Noto_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const playfair = Playfair_Display({ subsets: ["latin", "vietnamese"] })
-const notoSans = Noto_Sans({ subsets: ["latin", "vietnamese"] })
+const playfair = Playfair_Display({ 
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-playfair",
+})
+const notoSans = Noto_Sans({ 
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-noto-sans",
+})
 
 export const metadata: Metadata = {
   title: "Nhan Sushi Hanoi - Japanese Restaurant Since 2016",
@@ -29,7 +35,6 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -39,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`font-sans antialiased`}>
+      <body className={`${notoSans.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

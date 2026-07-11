@@ -13,19 +13,19 @@ const signatureDishes = [
     category: "SASHIMI STYLE",
     name: "Cá Hồi Signature",
     nameEn: "Salmon Signature with Special Sauce",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0045-sc811zh2rXUAqepjugZXFfzFMiOqiE.jpg",
+    image: "/images/Menu_Nhan_2025-45.webp",
   },
   {
     category: "PREMIUM",
     name: "Sea & Land Harmony",
     nameEn: "Foie Gras, Abalone & Bluefin Tuna Belly",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0001-TPlIJ8G376SKXaAz9hoBlBdKQ8D9W7.jpg",
+    image: "/images/Menu_Nhan_2025-01.webp",
   },
   {
     category: "WAGYU A5",
     name: "Wagyu Sashimi",
     nameEn: "Japanese A5 Wagyu, thinly sliced",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0007-OAvVEVWjh3wJu05MFNvscWgu8JXaU7.jpg",
+    image: "/images/Menu_Nhan_2025-07.webp",
   },
 ]
 

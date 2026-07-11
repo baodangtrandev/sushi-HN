@@ -3,8 +3,8 @@ import { MenuHero } from "@/components/menu/menu-hero"
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery"
 
 const saladPages = [
-  { src: "/images/unnamed-2811-29.jpg", alt: "Salad - Cá Hồi", pageNumber: 11 },
-  { src: "/images/unnamed-2812-29.png", alt: "Salad - Rong Biển, Kale, Tôm", pageNumber: 12 },
+  { src: "/images/Menu_Nhan_2025-11.webp", alt: "Salad - Cá Hồi", pageNumber: 11 },
+  { src: "/images/Menu_Nhan_2025-12.webp", alt: "Salad - Rong Biển, Kale, Tôm", pageNumber: 12 },
 ]
 
 export default function SaladPage() {
@@ -13,7 +13,7 @@ export default function SaladPage() {
       <MenuHero
         title="Salad"
         titleEn="FRESH SALADS"
-        image="/images/unnamed-2811-29.jpg"
+        image="/images/Menu_Nhan_2025-11.webp"
         description="Salad tươi mát với nguyên liệu cao cấp"
       />
 
