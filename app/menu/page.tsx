@@ -187,7 +187,7 @@ export default function MenuPage() {
       // Offset for sticky navs (Header + Category Nav)
       // Mobile: 80 + 61 = 141, Tablet: 96 + 61 = 157, Desktop: 112 + 61 = 173
       // Use 180 as a safe offset to trigger active state correctly
-      const scrollPosition = window.scrollY + 180; 
+      const scrollPosition = window.scrollY + 180;
 
       // Show/hide back to top button
       setShowBackToTop(window.scrollY > 500);
