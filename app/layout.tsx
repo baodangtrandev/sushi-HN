@@ -14,26 +14,13 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Nhan Sushi Hanoi - Japanese Restaurant Since 2016",
+  title: "Nhan Sushi - Japanese Restaurant",
   description:
     "Nhà hàng Nhật Bản cao cấp tại Hà Nội. Sashimi, Sushi, Wagyu và các món ăn Nhật Bản chính thống từ năm 2016.",
   keywords: "sushi, sashimi, japanese food, hanoi, wagyu, nhan sushi",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/images/nhan-sushi-logo-favicon.png",
+    apple: "/images/nhan-sushi-logo-favicon.png",
   },
 };
 
