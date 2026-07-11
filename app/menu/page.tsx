@@ -162,12 +162,27 @@ const menuSections = [
 ];
 
 export default function MenuPage() {
-  const [activeSection, setActiveSection] = useState("special");
+  const [activeSection, setActiveSection] = useState("lunch");
   const [showBackToTop, setShowBackToTop] = useState(false);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   // Scroll spy - track which section is currently in view
   useEffect(() => {
+    // Force scroll to top instantly without animation
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      // Temporarily disable smooth scroll from CSS
+      document.documentElement.style.scrollBehavior = "auto";
+      window.scrollTo(0, 0);
+
+      // Restore smooth scroll behavior for in-page navigation
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = "smooth";
+      }, 50);
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150; // Offset for sticky nav
 
@@ -233,22 +248,24 @@ export default function MenuPage() {
       </section>
 
       {/* Sticky Category Navigation */}
-      <nav className="sticky top-20 z-40 bg-black/95 backdrop-blur-md border-y border-white/10">
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex min-w-max px-4 py-3 gap-1">
-            {menuSections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${
-                  activeSection === section.id
-                    ? "bg-primary text-white"
-                    : "text-white/60 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {section.title}
-              </button>
-            ))}
+      <nav className="sticky top-20 z-40 bg-[#0a0a0a] border-y border-white/10">
+        <div className="container mx-auto">
+          <div className="overflow-x-auto scrollbar-hide px-4">
+            <div className="flex min-w-max py-3 gap-1">
+              {menuSections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${
+                    activeSection === section.id
+                      ? "bg-primary text-white"
+                      : "text-white/60 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
@@ -265,7 +282,7 @@ export default function MenuPage() {
             className="scroll-mt-36"
           >
             {/* Section Header */}
-            <div className="sticky top-[141px] z-30 bg-black/90 backdrop-blur-sm border-b border-white/5">
+            <div className="sticky top-[141px] z-30 bg-[#0a0a0a] border-b border-white/5">
               <div className="container mx-auto px-4 py-4">
                 <div className="flex items-center gap-4">
                   <div className="w-1 h-8 bg-primary rounded-full" />
