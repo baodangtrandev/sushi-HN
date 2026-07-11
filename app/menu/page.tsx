@@ -231,11 +231,10 @@ export default function MenuPage() {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${
-                  activeSection === section.id
+                className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${activeSection === section.id
                     ? "bg-primary text-white"
                     : "text-white/60 hover:text-white hover:bg-white/10"
-                }`}
+                  }`}
               >
                 {section.title}
               </button>
@@ -267,13 +266,13 @@ export default function MenuPage() {
             </div>
 
             {/* Menu Images - Direct display without zoom */}
-            <div className="space-y-0">
+            <div className="max-w-4xl mx-auto flex flex-col gap-4 md:gap-8 px-4 py-8">
               {section.pages.map((page, index) => (
-                <div key={index} className="relative w-full">
+                <div key={index} className="relative w-full overflow-hidden shadow-2xl rounded-lg">
                   <img
                     src={page.src || "/placeholder.svg"}
                     alt={page.alt}
-                    className="w-full h-auto"
+                    className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>

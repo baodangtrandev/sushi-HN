@@ -164,14 +164,14 @@ const wagyuGrilled = [
 ]
 
 const specialPages = [
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0001-zsWytAtZ1GQtEcTzVX3sfRnleWdssm.jpg", alt: "Sea & Land Harmony - Gan Ngỗng, Bào Ngư, Bụng Cá Ngừ", pageNumber: 1 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0002-uwWBhxQk4yudKl4Bh3WTyplmbCYNU3.jpg", alt: "Sushi Cao Cấp - Bụng Cá Ngừ, Nhum Biển", pageNumber: 2 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0003-gBqob7Z8E9XwqDB3Kz9tek84gGlZuF.jpg", alt: "Hải Sản Cao Cấp - Cá Tuyết, Cá Hồi, Sò Điệp", pageNumber: 3 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0004-zIx9BYjO6pRgChP9j8KUzMoxtKztfC.jpg", alt: "Tôm & Bò - Tôm Sú, Tuỷ Xương, Lưỡi Bò", pageNumber: 4 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0005-hSYkBMGSxTl0z2P05tzw5t3cVTFhCF.jpg", alt: "Món Khác - Pudding, Mỳ Ý, Cơm", pageNumber: 5 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0006-CuLTygwQniJYcxgQRiseIDWeOMXHHv.jpg", alt: "Fugu Sashimi - Cá Nóc", pageNumber: 6 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0007-JNEyLdIMbwnyYTTxDXSY5zeEkwor8A.jpg", alt: "Wagyu Sashimi & Sushi", pageNumber: 7 },
-  { src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0008-VwWLsuIfkWpYhjQL2wYsI2MRbDQSqu.jpg", alt: "Wagyu Nướng & Lẩu", pageNumber: 8 },
+  { src: "/images/Menu_Nhan_2025-01.webp", alt: "Sea & Land Harmony - Gan Ngỗng, Bào Ngư, Bụng Cá Ngừ", pageNumber: 1 },
+  { src: "/images/Menu_Nhan_2025-02.webp", alt: "Sushi Cao Cấp - Bụng Cá Ngừ, Nhum Biển", pageNumber: 2 },
+  { src: "/images/Menu_Nhan_2025-03.webp", alt: "Hải Sản Cao Cấp - Cá Tuyết, Cá Hồi, Sò Điệp", pageNumber: 3 },
+  { src: "/images/Menu_Nhan_2025-04.webp", alt: "Tôm & Bò - Tôm Sú, Tuỷ Xương, Lưỡi Bò", pageNumber: 4 },
+  { src: "/images/Menu_Nhan_2025-05.webp", alt: "Món Khác - Pudding, Mỳ Ý, Cơm", pageNumber: 5 },
+  { src: "/images/Menu_Nhan_2025-06.webp", alt: "Fugu Sashimi - Cá Nóc", pageNumber: 6 },
+  { src: "/images/Menu_Nhan_2025-07.webp", alt: "Wagyu Sashimi & Sushi", pageNumber: 7 },
+  { src: "/images/Menu_Nhan_2025-08.webp", alt: "Wagyu Nướng & Lẩu", pageNumber: 8 },
 ]
 
 export default function SpecialDishesPage() {

@@ -44,14 +44,14 @@ export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
   return (
     <>
       {/* Gallery Grid */}
-      <div className="space-y-0">
+      <div className="max-w-4xl mx-auto flex flex-col gap-4 md:gap-8 px-4 py-8">
         {pages.map((page, index) => (
-          <div key={index} className="relative w-full cursor-pointer group" onClick={() => openLightbox(index)}>
+          <div key={index} className="relative w-full cursor-pointer group overflow-hidden shadow-2xl" onClick={() => openLightbox(index)}>
             <div className="relative w-full">
               <img
                 src={page.src || "/placeholder.svg"}
                 alt={page.alt}
-                className="w-full h-auto object-contain transition-transform duration-500"
+                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
