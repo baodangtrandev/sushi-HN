@@ -45,7 +45,7 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-24 lg:h-28">
+          <div className="flex items-center justify-between h-20 md:h-24 lg:h-28">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/images/nhan-sushi-logo-transparent.png"

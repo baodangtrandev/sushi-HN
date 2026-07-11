@@ -185,7 +185,7 @@ export default function MenuPage() {
 
     const handleScroll = () => {
       // Offset for sticky navs (Header + Category Nav)
-      // Mobile: 96 + 61 = 157, Desktop: 112 + 61 = 173
+      // Mobile: 80 + 61 = 141, Tablet: 96 + 61 = 157, Desktop: 112 + 61 = 173
       // Use 180 as a safe offset to trigger active state correctly
       const scrollPosition = window.scrollY + 180; 
 
@@ -216,9 +216,10 @@ export default function MenuPage() {
   const scrollToSection = (sectionId: string) => {
     const element = sectionRefs.current[sectionId];
     if (element) {
-      // Determine offset based on screen width (lg breakpoint is 1024px)
+      // Determine offset based on screen width
       const isDesktop = window.innerWidth >= 1024;
-      const offset = isDesktop ? 176 : 160; // scroll-mt-44 vs scroll-mt-40
+      const isTablet = window.innerWidth >= 768;
+      const offset = isDesktop ? 176 : isTablet ? 160 : 144;
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({ top: elementPosition, behavior: "smooth" });
     }
@@ -253,7 +254,7 @@ export default function MenuPage() {
       </section>
 
       {/* Sticky Category Navigation */}
-      <nav className="sticky top-24 lg:top-28 z-40 bg-[#0a0a0a] border-y border-white/10">
+      <nav className="sticky top-20 md:top-24 lg:top-28 z-40 bg-[#0a0a0a] border-y border-white/10">
         <div className="container mx-auto">
           <div className="overflow-x-auto scrollbar-hide px-4">
             <div className="flex min-w-max py-3 gap-1">
@@ -284,10 +285,10 @@ export default function MenuPage() {
             ref={(el) => {
               sectionRefs.current[section.id] = el;
             }}
-            className="scroll-mt-40 lg:scroll-mt-44"
+            className="scroll-mt-36 md:scroll-mt-40 lg:scroll-mt-44"
           >
             {/* Section Header */}
-            <div className="sticky top-[157px] lg:top-[173px] z-30 bg-[#0a0a0a] border-b border-white/5">
+            <div className="sticky top-[141px] md:top-[157px] lg:top-[173px] z-30 bg-[#0a0a0a] border-b border-white/5">
               <div className="container mx-auto px-4 py-2.5">
                 <div className="flex items-center gap-3">
                   <div className="w-[3px] h-7 bg-primary rounded-full" />
