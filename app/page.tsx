@@ -1,12 +1,19 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
-import { Phone, MapPin, ChevronRight, Star, Clock, ChevronDown } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { Button } from "@/components/ui/button";
+import {
+  Phone,
+  MapPin,
+  ChevronRight,
+  Star,
+  Clock,
+  ChevronDown,
+} from "lucide-react";
 
 const signatureDishes = [
   {
@@ -27,7 +34,7 @@ const signatureDishes = [
     nameEn: "Japanese A5 Wagyu, thinly sliced",
     image: "/images/Menu_Nhan_2025-07.webp",
   },
-]
+];
 
 const signatureSets = [
   {
@@ -51,7 +58,7 @@ const signatureSets = [
     description: "Wagyu A5 đa phong cách",
     href: "/menu#special",
   },
-]
+];
 
 const testimonials = [
   {
@@ -84,7 +91,7 @@ const testimonials = [
     rating: 5,
     text: "Worth every penny. The freshness of the fish and the skill of the chef make this place stand out. A true gem in Hanoi.",
   },
-]
+];
 
 const menuCategories = [
   { name: "Món Đặc Biệt", nameEn: "Special", href: "/menu#special" },
@@ -93,42 +100,51 @@ const menuCategories = [
   { name: "Món Nướng", nameEn: "Grilled", href: "/menu#grilled" },
   { name: "Lẩu", nameEn: "Hotpot", href: "/menu#hotpot" },
   { name: "Cơm & Mì", nameEn: "Rice & Noodles", href: "/menu#rice" },
-]
+];
 
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0)
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
-  const heroRef = useRef<HTMLDivElement>(null)
+  const [scrollY, setScrollY] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToContent = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-  }
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Header />
 
       {/* Hero Section - Full Screen with Video-like Effect */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
         {/* Background Image with Parallax */}
         <div
           className="absolute inset-0 scale-110 transition-transform duration-100"
           style={{ transform: `translateY(${scrollY * 0.4}px) scale(1.1)` }}
         >
-          <Image src="/images/unnamed-2843-29.jpg" alt="Nhan Sushi" fill className="object-cover" priority />
+          <Image
+            src="/images/unnamed-2843-29.jpg"
+            alt="Nhan Sushi"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         {/* Gradient Overlay */}
@@ -188,10 +204,15 @@ export default function HomePage() {
       <section className="py-32 bg-black relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">Nhan Sushi Hanoi</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Set Menu</h2>
+            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">
+              Nhan Sushi Hanoi
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
+              Set Menu
+            </h2>
             <p className="text-white/50 max-w-xl mx-auto">
-              Những set món được tuyển chọn kỹ lưỡng, mang đến trải nghiệm ẩm thực Nhật Bản đích thực
+              Những set món được tuyển chọn kỹ lưỡng, mang đến trải nghiệm ẩm
+              thực Nhật Bản đích thực
             </p>
           </div>
 
@@ -203,7 +224,9 @@ export default function HomePage() {
                 href={set.href}
                 className="group text-center p-10 border border-white/10 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2"
               >
-                <p className="text-white/40 text-xs tracking-[0.3em] uppercase mb-3">{set.name}</p>
+                <p className="text-white/40 text-xs tracking-[0.3em] uppercase mb-3">
+                  {set.name}
+                </p>
                 <h3 className="font-serif text-2xl mb-3 group-hover:text-primary transition-colors duration-300">
                   {set.nameVi}
                 </h3>
@@ -218,14 +241,19 @@ export default function HomePage() {
 
           {/* Featured Dishes Header */}
           <div className="text-center mb-12">
-            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">Signature Dishes</p>
+            <p className="text-white/40 text-sm tracking-widest uppercase mb-4">
+              Signature Dishes
+            </p>
             <div className="w-16 h-[1px] bg-primary/50 mx-auto" />
           </div>
 
           {/* Featured Dishes Grid with Hover Effect */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-1 max-w-6xl mx-auto">
             {signatureDishes.map((dish, index) => (
-              <div key={index} className="group relative aspect-square overflow-hidden cursor-pointer">
+              <div
+                key={index}
+                className="group relative aspect-square overflow-hidden cursor-pointer"
+              >
                 <Image
                   src={dish.image || "/placeholder.svg"}
                   alt={dish.name}
@@ -237,7 +265,9 @@ export default function HomePage() {
                   <p className="text-primary text-xs tracking-[0.2em] uppercase mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     {dish.category}
                   </p>
-                  <h3 className="font-serif text-xl text-white mb-1">{dish.name}</h3>
+                  <h3 className="font-serif text-xl text-white mb-1">
+                    {dish.name}
+                  </h3>
                   <p className="text-white/60 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {dish.nameEn}
                   </p>
@@ -267,23 +297,35 @@ export default function HomePage() {
           className="absolute inset-0 transition-transform duration-100"
           style={{ transform: `translateY(${(scrollY - 1000) * 0.15}px)` }}
         >
-          <Image src="/images/unnamed-2839-29.jpg" alt="Nhan Sushi Interior" fill className="object-cover opacity-40" />
+          <Image
+            src="/images/unnamed-2839-29.jpg"
+            alt="Nhan Sushi Interior"
+            fill
+            className="object-cover opacity-40"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
 
         <div className="relative container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-6">Since 2016</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-10">Câu Chuyện Của Chúng Tôi</h2>
+            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-6">
+              Since 2016
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-10">
+              Câu Chuyện Của Chúng Tôi
+            </h2>
             <div className="w-20 h-[1px] bg-primary/50 mx-auto mb-10" />
             <p className="text-white/70 text-lg leading-relaxed mb-8">
-              Nhan Sushi ra đời từ niềm đam mê ẩm thực Nhật Bản truyền thống. Với triết lý tôn trọng nguyên liệu và kỹ
-              thuật chế biến tinh tế, chúng tôi mang đến cho thực khách Hà Nội trải nghiệm sushi Edomae đích thực với
-              nguyên liệu tươi ngon nhập khẩu trực tiếp từ Nhật Bản.
+              Nhan Sushi ra đời từ niềm đam mê ẩm thực Nhật Bản truyền thống.
+              Với triết lý tôn trọng nguyên liệu và kỹ thuật chế biến tinh tế,
+              chúng tôi mang đến cho thực khách Hà Nội trải nghiệm sushi Edomae
+              đích thực với nguyên liệu tươi ngon nhập khẩu trực tiếp từ Nhật
+              Bản.
             </p>
             <p className="text-white/70 text-lg leading-relaxed">
-              Mỗi miếng sushi, mỗi lát sashimi tại Nhan Sushi đều được chế biến với sự tỉ mỉ và tận tâm, kết hợp giữa kỹ
-              thuật truyền thống Nhật Bản và sự sáng tạo của đội ngũ đầu bếp giàu kinh nghiệm.
+              Mỗi miếng sushi, mỗi lát sashimi tại Nhan Sushi đều được chế biến
+              với sự tỉ mỉ và tận tâm, kết hợp giữa kỹ thuật truyền thống Nhật
+              Bản và sự sáng tạo của đội ngũ đầu bếp giàu kinh nghiệm.
             </p>
           </div>
         </div>
@@ -294,11 +336,17 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-x-16 gap-y-8">
             {menuCategories.map((cat, index) => (
-              <Link key={index} href={cat.href} className="group text-center relative">
+              <Link
+                key={index}
+                href={cat.href}
+                className="group text-center relative"
+              >
                 <span className="block font-serif text-2xl text-white group-hover:text-primary transition-colors duration-300">
                   {cat.name}
                 </span>
-                <span className="block text-xs text-white/40 tracking-widest uppercase mt-1">{cat.nameEn}</span>
+                <span className="block text-xs text-white/40 tracking-widest uppercase mt-1">
+                  {cat.nameEn}
+                </span>
                 {/* Underline animation */}
                 <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
@@ -311,9 +359,15 @@ export default function HomePage() {
       <section className="py-32 bg-black overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">Đánh Giá</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Khách Hàng Nói Gì</h2>
-            <p className="text-white/50">Những trải nghiệm thực tế từ thực khách của chúng tôi</p>
+            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">
+              Đánh Giá
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">
+              Khách Hàng Nói Gì
+            </h2>
+            <p className="text-white/50">
+              Những trải nghiệm thực tế từ thực khách của chúng tôi
+            </p>
           </div>
 
           {/* Featured Testimonial - Large Display */}
@@ -324,9 +378,11 @@ export default function HomePage() {
               ))}
             </div>
             <p className="text-white/80 text-xl md:text-2xl font-light leading-relaxed mb-8 italic transition-all duration-500">
-              "{testimonials[activeTestimonial].text}"
+              &quot;{testimonials[activeTestimonial].text}&quot;
             </p>
-            <p className="text-white font-medium tracking-wider">{testimonials[activeTestimonial].name}</p>
+            <p className="text-white font-medium tracking-wider">
+              {testimonials[activeTestimonial].name}
+            </p>
           </div>
 
           {/* Testimonial Indicators */}
@@ -336,7 +392,9 @@ export default function HomePage() {
                 key={index}
                 onClick={() => setActiveTestimonial(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === activeTestimonial ? "bg-primary w-8" : "bg-white/20 hover:bg-white/40"
+                  index === activeTestimonial
+                    ? "bg-primary w-8"
+                    : "bg-white/20 hover:bg-white/40"
                 }`}
               />
             ))}
@@ -348,15 +406,22 @@ export default function HomePage() {
               <div
                 key={index}
                 className={`p-8 border border-white/10 transition-all duration-500 hover:border-primary/30 ${
-                  index === activeTestimonial ? "border-primary/50 bg-white/5" : ""
+                  index === activeTestimonial
+                    ? "border-primary/50 bg-white/5"
+                    : ""
                 }`}
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-primary text-primary"
+                    />
                   ))}
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-6">"{testimonial.text}"</p>
+                <p className="text-white/70 text-sm leading-relaxed mb-6">
+                  &quot;{testimonial.text}&quot;
+                </p>
                 <p className="text-white font-medium">{testimonial.name}</p>
               </div>
             ))}
@@ -370,16 +435,26 @@ export default function HomePage() {
           className="absolute inset-0 transition-transform duration-100"
           style={{ transform: `translateY(${(scrollY - 2500) * 0.1}px)` }}
         >
-          <Image src="/images/unnamed-2847-29.jpeg" alt="Reservation" fill className="object-cover opacity-25" />
+          <Image
+            src="/images/unnamed-2847-29.jpeg"
+            alt="Reservation"
+            fill
+            className="object-cover opacity-25"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black" />
 
         <div className="relative container mx-auto px-4 text-center">
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-6">Reservations</p>
-          <h2 className="font-serif text-4xl md:text-6xl font-light mb-8">Đặt Bàn Ngay</h2>
+          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-6">
+            Reservations
+          </p>
+          <h2 className="font-serif text-4xl md:text-6xl font-light mb-8">
+            Đặt Bàn Ngay
+          </h2>
           <p className="text-white/60 max-w-xl mx-auto mb-12">
-            Chúng tôi khuyến khích quý khách đặt bàn trước để có trải nghiệm tốt nhất. Đặc biệt với các set menu cao
-            cấp, vui lòng đặt trước ít nhất 24 giờ.
+            Chúng tôi khuyến khích quý khách đặt bàn trước để có trải nghiệm tốt
+            nhất. Đặc biệt với các set menu cao cấp, vui lòng đặt trước ít nhất
+            24 giờ.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
@@ -409,7 +484,10 @@ export default function HomePage() {
       <div className="py-8 bg-[#080808] border-t border-white/5 overflow-hidden">
         <div className="flex animate-marquee">
           {[...Array(20)].map((_, i) => (
-            <span key={i} className="mx-8 text-3xl font-serif text-white/10 whitespace-nowrap">
+            <span
+              key={i}
+              className="mx-8 text-3xl font-serif text-white/10 whitespace-nowrap"
+            >
               NHAN SUSHI <span className="text-primary/30">人</span> HANOI
             </span>
           ))}
@@ -418,5 +496,5 @@ export default function HomePage() {
 
       <Footer />
     </div>
-  )
+  );
 }

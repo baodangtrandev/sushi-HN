@@ -1,11 +1,12 @@
-"use client"
+/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { Phone, ChevronUp } from "lucide-react"
+import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { Phone, ChevronUp } from "lucide-react";
 
 // All menu categories with their pages
 const menuSections = [
@@ -19,7 +20,10 @@ const menuSections = [
       { src: "/images/set_lunch-03.webp", alt: "Ranchi Setto Lunch Menu" },
       { src: "/images/set_lunch-04.webp", alt: "Premium Lunch Selections" },
       { src: "/images/set_lunch-05.webp", alt: "Salmon & Sashimi Lunch Sets" },
-      { src: "/images/set_lunch-06.webp", alt: "Rice & Sashimi Lunch Combinations" },
+      {
+        src: "/images/set_lunch-06.webp",
+        alt: "Rice & Sashimi Lunch Combinations",
+      },
       { src: "/images/set_lunch-07.webp", alt: "Tempura & Seafood Lunch Sets" },
       { src: "/images/set_lunch-08.webp", alt: "Grilled & Noodle Lunch Sets" },
       { src: "/images/set_lunch-09.webp", alt: "Complete Lunch Menu Sets" },
@@ -122,9 +126,7 @@ const menuSections = [
     id: "noodles",
     title: "Mì",
     titleEn: "NOODLE DISHES",
-    pages: [
-      { src: "/images/Menu_Nhan_2025-38.webp", alt: "Udon & Ramen" },
-    ],
+    pages: [{ src: "/images/Menu_Nhan_2025-38.webp", alt: "Udon & Ramen" }],
   },
   {
     id: "rolls",
@@ -157,52 +159,55 @@ const menuSections = [
       { src: "/images/Menu_Nhan_2025-48.webp", alt: "Hot Pot & Nabemono" },
     ],
   },
-]
+];
 
 export default function MenuPage() {
-  const [activeSection, setActiveSection] = useState("special")
-  const [showBackToTop, setShowBackToTop] = useState(false)
-  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({})
+  const [activeSection, setActiveSection] = useState("special");
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   // Scroll spy - track which section is currently in view
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150 // Offset for sticky nav
+      const scrollPosition = window.scrollY + 150; // Offset for sticky nav
 
       // Show/hide back to top button
-      setShowBackToTop(window.scrollY > 500)
+      setShowBackToTop(window.scrollY > 500);
 
       // Find active section
       for (const section of menuSections) {
-        const element = sectionRefs.current[section.id]
+        const element = sectionRefs.current[section.id];
         if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section.id)
-            break
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section.id);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Scroll to section
   const scrollToSection = (sectionId: string) => {
-    const element = sectionRefs.current[sectionId]
+    const element = sectionRefs.current[sectionId];
     if (element) {
-      const offset = 145 // Height of sticky nav + some padding
-      const elementPosition = element.offsetTop - offset
-      window.scrollTo({ top: elementPosition, behavior: "smooth" })
+      const offset = 145; // Height of sticky nav + some padding
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
     }
-  }
+  };
 
   // Back to top
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -212,8 +217,12 @@ export default function MenuPage() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
         <div className="relative z-10 text-center px-4">
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">Nhan Sushi Hanoi</p>
-          <h1 className="font-serif text-4xl md:text-6xl font-light mb-4">Thực Đơn</h1>
+          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4">
+            Nhan Sushi Hanoi
+          </p>
+          <h1 className="font-serif text-4xl md:text-6xl font-light mb-4">
+            Thực Đơn
+          </h1>
           <p className="text-white/60 max-w-md mx-auto mb-3">
             Cuộn xuống để khám phá toàn bộ thực đơn
           </p>
@@ -231,10 +240,11 @@ export default function MenuPage() {
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${activeSection === section.id
+                className={`px-4 py-2 text-sm whitespace-nowrap transition-all duration-300 rounded-full ${
+                  activeSection === section.id
                     ? "bg-primary text-white"
                     : "text-white/60 hover:text-white hover:bg-white/10"
-                  }`}
+                }`}
               >
                 {section.title}
               </button>
@@ -249,7 +259,9 @@ export default function MenuPage() {
           <section
             key={section.id}
             id={section.id}
-            ref={(el) => { sectionRefs.current[section.id] = el }}
+            ref={(el) => {
+              sectionRefs.current[section.id] = el;
+            }}
             className="scroll-mt-36"
           >
             {/* Section Header */}
@@ -258,8 +270,12 @@ export default function MenuPage() {
                 <div className="flex items-center gap-4">
                   <div className="w-1 h-8 bg-primary rounded-full" />
                   <div className="flex flex-col justify-center py-1">
-                    <h2 className="font-serif text-2xl text-white leading-none mb-1">{section.title}</h2>
-                    <p className="text-white/40 text-xs tracking-widest uppercase leading-none">{section.titleEn}</p>
+                    <h2 className="font-serif text-2xl text-white leading-none mb-1">
+                      {section.title}
+                    </h2>
+                    <p className="text-white/40 text-xs tracking-widest uppercase leading-none">
+                      {section.titleEn}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -268,7 +284,10 @@ export default function MenuPage() {
             {/* Menu Images - Direct display without zoom */}
             <div className="max-w-4xl mx-auto flex flex-col gap-4 md:gap-8 px-4 py-8">
               {section.pages.map((page, index) => (
-                <div key={index} className="relative w-full overflow-hidden shadow-2xl rounded-lg">
+                <div
+                  key={index}
+                  className="relative w-full overflow-hidden shadow-2xl rounded-lg"
+                >
                   <img
                     src={page.src || "/placeholder.svg"}
                     alt={page.alt}
@@ -314,5 +333,5 @@ export default function MenuPage() {
 
       <Footer />
     </div>
-  )
+  );
 }

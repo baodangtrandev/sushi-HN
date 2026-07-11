@@ -1,18 +1,28 @@
-import Image from "next/image"
+import Image from "next/image";
 
 interface MenuItemCardProps {
-  name: string
-  nameEn?: string
-  nameJp?: string
-  price: string | number
-  priceNote?: string
-  image: string
-  badge?: "best-seller" | "must-try"
-  description?: string
+  name: string;
+  nameEn?: string;
+  nameJp?: string;
+  price: string | number;
+  priceNote?: string;
+  image: string;
+  badge?: "best-seller" | "must-try";
+  description?: string;
 }
 
-export function MenuItemCard({ name, nameEn, nameJp, price, priceNote, image, badge, description }: MenuItemCardProps) {
-  const formattedPrice = typeof price === "number" ? price.toLocaleString("vi-VN") : price
+export function MenuItemCard({
+  name,
+  nameEn,
+  nameJp,
+  price,
+  priceNote,
+  image,
+  badge,
+  description,
+}: MenuItemCardProps) {
+  const formattedPrice =
+    typeof price === "number" ? price.toLocaleString("vi-VN") : price;
 
   return (
     <div className="group relative bg-[#141414] border border-white/10 rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:border-white/20 transition-all">
@@ -49,13 +59,21 @@ export function MenuItemCard({ name, nameEn, nameJp, price, priceNote, image, ba
       {/* Content - Updated text colors for dark theme */}
       <div className="p-4 text-center">
         <h3 className="font-serif font-bold text-white text-lg">{name}</h3>
-        {nameEn && <p className="text-white/50 text-sm italic mt-1">{nameEn}</p>}
-        {description && <p className="text-white/40 text-xs mt-2">{description}</p>}
+        {nameEn && (
+          <p className="text-white/50 text-sm italic mt-1">{nameEn}</p>
+        )}
+        {description && (
+          <p className="text-white/40 text-xs mt-2">{description}</p>
+        )}
         <p className="text-primary font-bold text-lg mt-2">
           {formattedPrice}
-          {priceNote && <span className="text-white/40 text-xs font-normal ml-1">{priceNote}</span>}
+          {priceNote && (
+            <span className="text-white/40 text-xs font-normal ml-1">
+              {priceNote}
+            </span>
+          )}
         </p>
       </div>
     </div>
-  )
+  );
 }

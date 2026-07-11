@@ -1,45 +1,47 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
-import { useState, useEffect } from "react"
-import { Menu, X, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Menu, X, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const menuCategories = [
   { name: "Trang Chủ", href: "/" },
   { name: "Xem Thực Đơn", href: "/menu" },
-]
+];
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ''
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ''
-    }
-  }, [isMenuOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 ${
-          isScrolled || isMenuOpen ? "bg-black border-b border-white/10" : "bg-transparent"
+          isScrolled || isMenuOpen
+            ? "bg-black border-b border-white/10"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -72,7 +74,10 @@ export function Header() {
 
             {/* Contact & Mobile Menu */}
             <div className="flex items-center gap-4">
-              <a href="tel:0358290290" className="hidden sm:flex lg:hidden items-center gap-2 text-white">
+              <a
+                href="tel:0358290290"
+                className="hidden sm:flex lg:hidden items-center gap-2 text-white"
+              >
                 <Phone className="w-4 h-4 text-primary" />
                 <span className="text-sm">035 829 0290</span>
               </a>
@@ -83,12 +88,15 @@ export function Header() {
                 className="lg:hidden text-white hover:bg-white/10"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </Button>
             </div>
           </div>
         </div>
-
       </header>
 
       {/* Mobile Menu - Outside header for proper z-index stacking */}
@@ -117,5 +125,5 @@ export function Header() {
         </div>
       )}
     </>
-  )
+  );
 }

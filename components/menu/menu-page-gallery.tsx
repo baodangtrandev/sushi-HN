@@ -1,52 +1,61 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react"
+/* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 
 interface MenuPage {
-  src: string
-  alt: string
-  pageNumber?: number
+  src: string;
+  alt: string;
+  pageNumber?: number;
 }
 
 interface MenuPageGalleryProps {
-  pages: MenuPage[]
-  title?: string
+  pages: MenuPage[];
+  title?: string;
 }
 
 export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const openLightbox = (index: number) => setSelectedIndex(index)
-  const closeLightbox = () => setSelectedIndex(null)
+  const openLightbox = (index: number) => setSelectedIndex(index);
+  const closeLightbox = () => setSelectedIndex(null);
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === 0 ? pages.length - 1 : selectedIndex - 1)
+      setSelectedIndex(
+        selectedIndex === 0 ? pages.length - 1 : selectedIndex - 1,
+      );
     }
-  }
+  };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === pages.length - 1 ? 0 : selectedIndex + 1)
+      setSelectedIndex(
+        selectedIndex === pages.length - 1 ? 0 : selectedIndex + 1,
+      );
     }
-  }
+  };
 
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Escape") closeLightbox()
-    if (e.key === "ArrowLeft") goToPrevious()
-    if (e.key === "ArrowRight") goToNext()
-  }
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") goToPrevious();
+    if (e.key === "ArrowRight") goToNext();
+  };
 
   return (
     <>
       {/* Gallery Grid */}
       <div className="max-w-4xl mx-auto flex flex-col gap-4 md:gap-8 px-4 py-8">
         {pages.map((page, index) => (
-          <div key={index} className="relative w-full cursor-pointer group overflow-hidden shadow-2xl" onClick={() => openLightbox(index)}>
+          <div
+            key={index}
+            className="relative w-full cursor-pointer group overflow-hidden shadow-2xl"
+            onClick={() => openLightbox(index)}
+          >
             <div className="relative w-full">
               <img
                 src={page.src || "/placeholder.svg"}
@@ -89,8 +98,8 @@ export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
           <button
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-10 p-2"
             onClick={(e) => {
-              e.stopPropagation()
-              goToPrevious()
+              e.stopPropagation();
+              goToPrevious();
             }}
           >
             <ChevronLeft className="w-10 h-10" />
@@ -99,15 +108,18 @@ export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
           <button
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-10 p-2"
             onClick={(e) => {
-              e.stopPropagation()
-              goToNext()
+              e.stopPropagation();
+              goToNext();
             }}
           >
             <ChevronRight className="w-10 h-10" />
           </button>
 
           {/* Image */}
-          <div className="max-w-[90vw] max-h-[90vh] relative" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="max-w-[90vw] max-h-[90vh] relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={pages[selectedIndex].src || "/placeholder.svg"}
               alt={pages[selectedIndex].alt}
@@ -122,5 +134,5 @@ export function MenuPageGallery({ pages, title }: MenuPageGalleryProps) {
         </div>
       )}
     </>
-  )
+  );
 }
