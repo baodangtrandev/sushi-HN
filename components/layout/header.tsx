@@ -68,7 +68,7 @@ export function Header() {
                 href="tel:0358290290"
                 className="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm tracking-wider transition-colors"
               >
-                Đặt Bàn
+                Đặt Bàn - 035 829 0290
               </a>
             </nav>
 
