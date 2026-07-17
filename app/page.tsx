@@ -107,7 +107,6 @@ export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -130,10 +129,7 @@ export default function HomePage() {
       <Header />
 
       {/* Hero Section - Full Screen with Video-like Effect */}
-      <section
-        className="relative h-screen flex items-center justify-center overflow-hidden"
-      >
-
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
 
@@ -280,7 +276,6 @@ export default function HomePage() {
 
       {/* Our Story Section - Parallax */}
       <section className="relative py-40 overflow-hidden">
-
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
 
         <div className="relative container mx-auto px-4">
@@ -408,7 +403,6 @@ export default function HomePage() {
 
       {/* Reservation CTA */}
       <section className="py-32 relative overflow-hidden">
-
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black" />
 
         <div className="relative container mx-auto px-4 text-center">
