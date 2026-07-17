@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -100,12 +100,13 @@ const menuCategories = [
   { name: "Món Nướng", nameEn: "Grilled", href: "/menu#grilled" },
   { name: "Lẩu", nameEn: "Hotpot", href: "/menu#hotpot" },
   { name: "Cơm & Mì", nameEn: "Rice & Noodles", href: "/menu#rice" },
+  { name: "Nước Uống", nameEn: "Drinks", href: "/menu#drinks" },
 ];
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -130,22 +131,8 @@ export default function HomePage() {
 
       {/* Hero Section - Full Screen with Video-like Effect */}
       <section
-        ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Background Image with Parallax */}
-        <div
-          className="absolute inset-0 scale-110 transition-transform duration-100"
-          style={{ transform: `translateY(${scrollY * 0.4}px) scale(1.1)` }}
-        >
-          <Image
-            src="/images/unnamed-2843-29.jpg"
-            alt="Nhan Sushi"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
@@ -293,17 +280,7 @@ export default function HomePage() {
 
       {/* Our Story Section - Parallax */}
       <section className="relative py-40 overflow-hidden">
-        <div
-          className="absolute inset-0 transition-transform duration-100"
-          style={{ transform: `translateY(${(scrollY - 1000) * 0.15}px)` }}
-        >
-          <Image
-            src="/images/unnamed-2839-29.jpg"
-            alt="Nhan Sushi Interior"
-            fill
-            className="object-cover opacity-40"
-          />
-        </div>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
 
         <div className="relative container mx-auto px-4">
@@ -431,17 +408,7 @@ export default function HomePage() {
 
       {/* Reservation CTA */}
       <section className="py-32 relative overflow-hidden">
-        <div
-          className="absolute inset-0 transition-transform duration-100"
-          style={{ transform: `translateY(${(scrollY - 2500) * 0.1}px)` }}
-        >
-          <Image
-            src="/images/unnamed-2847-29.jpeg"
-            alt="Reservation"
-            fill
-            className="object-cover opacity-25"
-          />
-        </div>
+
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black" />
 
         <div className="relative container mx-auto px-4 text-center">

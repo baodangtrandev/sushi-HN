@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Playfair_Display, Noto_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { FloatingActions } from "@/components/layout/floating-actions";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -30,11 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
       <body
         className={`${notoSans.variable} ${playfair.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         {children}
+        <FloatingActions />
         <Analytics />
       </body>
     </html>

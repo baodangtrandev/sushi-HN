@@ -53,6 +53,8 @@ export function Header() {
                 width={160}
                 height={96}
                 className="h-16 w-auto md:h-20 lg:h-24 transition-transform group-hover:scale-105"
+                style={{ width: "auto" }}
+                priority
               />
             </Link>
 

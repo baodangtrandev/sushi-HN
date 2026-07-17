@@ -3,10 +3,10 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { Phone, ChevronUp } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 
 // All menu categories with their pages
 const menuSections = [
@@ -159,6 +159,20 @@ const menuSections = [
       { src: "/images/Menu_Nhan_2025-48.webp", alt: "Hot Pot & Nabemono" },
     ],
   },
+  {
+    id: "drinks",
+    title: "Nước Uống",
+    titleEn: "DRINKS & BEVERAGES",
+    pages: [
+      { src: "/images/menu_nuoc/page-2.webp", alt: "Drinks Menu Page 2" },
+      { src: "/images/menu_nuoc/page-3.webp", alt: "Drinks Menu Page 3" },
+      { src: "/images/menu_nuoc/page-4.webp", alt: "Drinks Menu Page 4" },
+      { src: "/images/menu_nuoc/page-5.webp", alt: "Drinks Menu Page 5" },
+      { src: "/images/menu_nuoc/page-6.webp", alt: "Drinks Menu Page 6" },
+      { src: "/images/menu_nuoc/page-7.webp", alt: "Drinks Menu Page 7" },
+      { src: "/images/menu_nuoc/page-8.webp", alt: "Drinks Menu Page 8" },
+    ],
+  },
 ];
 
 export default function MenuPage() {
@@ -309,12 +323,12 @@ export default function MenuPage() {
               {section.pages.map((page, index) => (
                 <div
                   key={index}
-                  className="relative w-full overflow-hidden shadow-2xl rounded-lg"
+                  className="relative w-full overflow-hidden shadow-2xl rounded-lg aspect-[1/1.414] bg-white/5"
                 >
                   <img
                     src={page.src || "/placeholder.svg"}
                     alt={page.alt}
-                    className="w-full h-auto object-contain"
+                    className="absolute inset-0 w-full h-full object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -331,28 +345,16 @@ export default function MenuPage() {
         </div>
       </main>
 
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        {/* Back to Top */}
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 shadow-lg"
-            aria-label="Back to top"
-          >
-            <ChevronUp className="w-5 h-5" />
-          </button>
-        )}
-
-        {/* Call to Book */}
-        <a
-          href="tel:0358290290"
-          className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-all duration-300 shadow-lg"
-          aria-label="Call to book"
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-[140px] right-6 z-50 w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 shadow-lg"
+          aria-label="Back to top"
         >
-          <Phone className="w-5 h-5" />
-        </a>
-      </div>
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
 
       <Footer />
     </div>
