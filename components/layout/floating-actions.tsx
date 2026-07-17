@@ -1,22 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
-
-/**
- * Zalo SVG icon component - simple stylized "Z" letter
- */
-function ZaloIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
-      fill="currentColor"
-      className={className}
-    >
-      <path d="M12.5 10h23a2 2 0 0 1 1.6 3.2L18.5 35H35a2 2 0 0 1 0 4H12.5a2 2 0 0 1-1.6-3.2L29.5 14H13a2 2 0 0 1 0-4z" />
-    </svg>
-  );
-}
+import Image from "next/image";
 
 /**
  * Floating action buttons that appear on every page.
@@ -46,11 +31,16 @@ export function FloatingActions() {
           href="https://zalo.me/1545361812272842393"
           target="_blank"
           rel="noopener noreferrer"
-          className="group absolute inset-0 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[#0068FF]/50"
-          style={{ backgroundColor: "#0068FF" }}
+          className="group absolute inset-0 rounded-full flex items-center justify-center bg-blue-500 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-[#0068FF]/50"
           aria-label="Chat on Zalo"
         >
-          <ZaloIcon className="w-6 h-6" />
+          <Image
+            src="/images/Logo-Zalo-Arc.webp"
+            alt="Zalo"
+            width={48}
+            height={48}
+            className="w-full h-full object-contain p-2"
+          />
           {/* Tooltip */}
           <span
             className="absolute right-full mr-3 px-3 py-1.5 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg"
