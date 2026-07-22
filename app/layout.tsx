@@ -1,6 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Playfair_Display, Noto_Sans } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { FloatingActions } from "@/components/layout/floating-actions";
 import "./globals.css";
@@ -32,10 +33,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" suppressHydrationWarning data-scroll-behavior="smooth">
+      <head>
+        <Script id="gtm-head" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMZJB59R');`}
+        </Script>
+      </head>
       <body
         className={`${notoSans.variable} ${playfair.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KMZJB59R"
+            height={0}
+            width={0}
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         {children}
         <FloatingActions />
         <Analytics />
