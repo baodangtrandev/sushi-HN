@@ -562,3 +562,160 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ========================================
+   MINIGAME POPUP
+   ======================================== */
+
+@keyframes popupBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popupModalIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes popupCtaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.55); }
+  50%       { box-shadow: 0 0 0 10px rgba(196, 30, 58, 0); }
+}
+
+.minigame-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: popupBackdropIn 0.35s ease forwards;
+  cursor: pointer;
+}
+
+.minigame-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  /* Mobile default: portrait 900×1600 */
+  width: min(88vw, 360px);
+  animation: popupModalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  filter: drop-shadow(0 24px 60px rgba(0,0,0,0.75));
+}
+
+.minigame-image-wrapper {
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.minigame-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 76vh;
+  object-position: top;
+}
+
+.minigame-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 10000;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 2px solid rgba(255,255,255,0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.minigame-close:hover {
+  background: #c41e3a;
+  transform: scale(1.12) rotate(90deg);
+}
+
+.minigame-cta {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  border-radius: 0 0 16px 16px;
+  animation: popupCtaPulse 2s ease-in-out infinite;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.minigame-cta:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.minigame-cta:active {
+  transform: translateY(0);
+}
+
+/* ── Tablet: portrait 1200×1500 ── */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .minigame-modal {
+    width: 75vw;
+  }
+  .minigame-image {
+    max-height: 78vh;
+  }
+  .minigame-cta {
+    font-size: 19px;
+    padding: 18px 32px;
+  }
+}
+
+/* ── Desktop / PC: landscape 1200×628 ── */
+@media (min-width: 1280px) {
+  .minigame-modal {
+    /* Wide landscape — match 1200:628 ≈ 1.91:1 ratio, cap at 820px */
+    width: 55vw;
+  }
+  .minigame-image {
+    /* Landscape images don't need height cap */
+    max-height: none;
+  }
+  .minigame-cta {
+    font-size: 19px;
+    padding: 20px 36px;
+  }
+}
+
+/* ── Very small phones ── */
+@media (max-width: 380px) {
+  .minigame-modal {
+    width: 94vw;
+  }
+  .minigame-cta {
+    font-size: 15px;
+    padding: 13px 16px;
+  }
+}
