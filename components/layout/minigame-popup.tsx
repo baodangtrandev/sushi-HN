@@ -41,7 +41,7 @@ export function MiniGamePopup() {
   const [ytReady, setYtReady] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
 
-  const playerRef    = useRef<YTPlayer | null>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   // Track whether user has already triggered unmute via first tap
   const unmuteTriedRef = useRef(false);
@@ -85,15 +85,15 @@ export function MiniGamePopup() {
     playerRef.current = new window.YT.Player(containerRef.current, {
       videoId: VIDEO_ID,
       playerVars: {
-        autoplay:       1,
-        mute:           1,   // start muted — required by all browsers
-        controls:       0,
-        disablekb:      1,
-        loop:           1,
-        playlist:       VIDEO_ID,
-        rel:            0,
+        autoplay: 1,
+        mute: 1, // start muted — required by all browsers
+        controls: 0,
+        disablekb: 1,
+        loop: 1,
+        playlist: VIDEO_ID,
+        rel: 0,
         modestbranding: 1,
-        playsinline:    1,   // ← CRITICAL for iOS Safari inline playback
+        playsinline: 1, // ← CRITICAL for iOS Safari inline playback
       },
       events: {
         onReady: (e) => {
@@ -190,12 +190,12 @@ export function MiniGamePopup() {
         <div
           ref={containerRef}
           style={{
-            position:      "absolute",
-            width:         "1px",
-            height:        "1px",
-            opacity:       0,
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            opacity: 0,
             pointerEvents: "none",
-            overflow:      "hidden",
+            overflow: "hidden",
           }}
           aria-hidden="true"
         />
