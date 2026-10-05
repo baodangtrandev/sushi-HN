@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { X, Volume2, VolumeX } from "lucide-react";
+import { X, Volume2, VolumeX, Phone } from "lucide-react";
+import Image from "next/image";
 
-const VIDEO_ID = "qQTeKUWNcyk";
+const VIDEO_ID = "llcQu-XB6oE";
 
-const FB_URL =
-  "https://www.facebook.com/nhansushihanoi/posts/pfbid02RRqnj9D9Ryk7GAxjrTmSEr5pGkrH1YpZNjJsv72APnrwj7ZrXEQye386PoMUQ8Xgl";
+const HOTLINE_TEL = "tel:0358290290";
+const ZALO_URL = "https://zalo.me/1545361812272842393";
 
 /* ── Minimal YT types (avoids installing @types/youtube) ─────────────── */
 interface YTPlayer {
@@ -212,7 +213,7 @@ export function MiniGamePopup() {
               />
               <img
                 src="/images/minigame-mobile.jpg"
-                alt="Minigame Ngôi Vương Đông Nam Á – Nhan Sushi Hanoi"
+                alt="Sax, Sushi & Her – Nhan Sushi Hanoi"
                 width={900}
                 height={1600}
                 className="minigame-image"
@@ -222,15 +223,53 @@ export function MiniGamePopup() {
             </picture>
           </div>
 
-          {/* CTA */}
+          {/* Mobile CTA (chỉ hiện trên màn hình < 768px): 2 nút stack ~50% width bo tròn */}
+          <div className="minigame-actions-mobile">
+            {/* Nút 1: Đặt bàn ngay trỏ tới Hotline */}
+            <a
+              href={HOTLINE_TEL}
+              className="minigame-cta-mobile minigame-cta-mobile-call"
+              id="minigame-cta-mobile-call-btn"
+            >
+              <Phone size={14} strokeWidth={2.5} className="shrink-0" />
+              <span>Đặt bàn ngay</span>
+            </a>
+
+            {/* Nút 2: Tư vấn thêm trỏ tới Zalo OA */}
+            <a
+              href={ZALO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="minigame-cta-mobile minigame-cta-mobile-zalo"
+              id="minigame-cta-mobile-zalo-btn"
+            >
+              <Image
+                src="/images/Logo-Zalo-Arc.webp"
+                alt="Zalo"
+                width={18}
+                height={18}
+                className="w-4 h-4 object-contain shrink-0 rounded-sm"
+              />
+              <span>Tư vấn thêm</span>
+            </a>
+          </div>
+
+          {/* Desktop & Tablet CTA (màn hình >= 768px): DUY NHẤT 1 NÚT 100% FULL WIDTH TRỎ VỀ ZALO OA */}
           <a
-            href={FB_URL}
+            href={ZALO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="minigame-cta"
-            id="minigame-cta-btn"
+            className="minigame-cta-desktop"
+            id="minigame-cta-desktop-btn"
           >
-            Tham gia ngay
+            <Image
+              src="/images/Logo-Zalo-Arc.webp"
+              alt="Zalo"
+              width={30}
+              height={30}
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain shrink-0 rounded-md"
+            />
+            <span>Đặt bàn ngay</span>
           </a>
         </div>
       </div>

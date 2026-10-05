@@ -319,7 +319,8 @@ html {
 
 /* Gentle Bounce - Subtle floating to attract attention */
 @keyframes gentleBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -375,7 +376,9 @@ html {
 
 /* Button hover lift effect */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
@@ -385,7 +388,10 @@ html {
 
 /* Card hover effect */
 .hover-card {
-  transition: transform 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background-color 0.4s ease;
 }
 
 .hover-card:hover {
@@ -443,7 +449,9 @@ html {
 .testimonial-card {
   background: linear-gradient(145deg, #141414 0%, #0a0a0a 100%);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: border-color 0.4s ease, transform 0.4s ease;
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease;
 }
 
 .testimonial-card:hover {
@@ -482,7 +490,12 @@ html {
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
 }
 
 /* ========================================
@@ -568,8 +581,12 @@ html {
    ======================================== */
 
 @keyframes popupBackdropIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popupModalIn {
@@ -584,36 +601,68 @@ html {
 }
 
 @keyframes popupCtaPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.55); }
-  50%       { box-shadow: 0 0 0 10px rgba(196, 30, 58, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(196, 30, 58, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(196, 30, 58, 0);
+  }
+}
+
+@keyframes popupCtaPulseZalo {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(0, 104, 255, 0);
+  }
 }
 
 /* Stadium spotlight — radial red glow pulses like floodlights */
 @keyframes backdropSpotlight {
-  0%, 100% {
+  0%,
+  100% {
     background:
-      radial-gradient(ellipse 80% 50% at 50% 30%, rgba(196, 30, 58, 0.04) 0%, transparent 65%),
+      radial-gradient(
+        ellipse 80% 50% at 50% 30%,
+        rgba(196, 30, 58, 0.04) 0%,
+        transparent 65%
+      ),
       rgba(0, 0, 0, 0.72);
   }
   50% {
     background:
-      radial-gradient(ellipse 80% 50% at 50% 30%, rgba(196, 30, 58, 0.13) 0%, transparent 65%),
+      radial-gradient(
+        ellipse 80% 50% at 50% 30%,
+        rgba(196, 30, 58, 0.13) 0%,
+        transparent 65%
+      ),
       rgba(0, 0, 0, 0.72);
   }
 }
 
 /* Ball-like gentle float after entrance */
 @keyframes popupFloat {
-  0%, 100% { transform: translateY(0px);   }
-  45%       { transform: translateY(-7px);  }
-  55%       { transform: translateY(-7px);  }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  45% {
+    transform: translateY(-7px);
+  }
+  55% {
+    transform: translateY(-7px);
+  }
 }
 
 /* Stadium red glow pulsing on the modal card */
 @keyframes popupCardGlow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow:
-      0 0  0  0  rgba(196, 30, 58, 0),
+      0 0 0 0 rgba(196, 30, 58, 0),
       0 20px 50px rgba(0, 0, 0, 0.6);
   }
   50% {
@@ -625,8 +674,12 @@ html {
 
 /* Floodlight shine sweep across CTA */
 @keyframes ctaShine {
-  0%   { transform: translateX(-180%) skewX(-20deg); }
-  100% { transform: translateX(280%)  skewX(-20deg); }
+  0% {
+    transform: translateX(-180%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
 }
 
 .minigame-backdrop {
@@ -637,8 +690,8 @@ html {
   -webkit-backdrop-filter: blur(4px);
   cursor: pointer;
   animation:
-    popupBackdropIn    0.35s ease                       forwards,
-    backdropSpotlight  3.5s  ease-in-out   0.4s          infinite;
+    popupBackdropIn 0.35s ease forwards,
+    backdropSpotlight 3.5s ease-in-out 0.4s infinite;
 }
 
 .minigame-modal {
@@ -651,8 +704,8 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  /* Mobile default: portrait 900×1600 */
-  width: min(88vw, 360px);
+  /* Mobile default: chiều ngang vừa vặn, cân đối giữa màn hình */
+  width: min(80vw, 305px);
   animation: popupModalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
@@ -661,16 +714,30 @@ html {
   position: relative;
   width: 100%;
   border-radius: 16px;
+  background: rgb(18, 18, 20);
   animation:
-    popupFloat    3.8s ease-in-out 0.5s infinite,
-    popupCardGlow 3.0s ease-in-out 1.0s infinite;
+    popupFloat 3.8s ease-in-out 0.5s infinite,
+    popupCardGlow 3s ease-in-out 1s infinite;
 }
 
 .minigame-image-wrapper {
+  position: relative;
   width: 100%;
   border-radius: 16px 16px 0 0;
   overflow: hidden;
   line-height: 0;
+}
+
+/* Gradient fade at bottom of image to merge seamlessly into actions container */
+.minigame-image-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(to bottom, transparent 0%, rgb(18, 18, 20) 100%);
+  pointer-events: none;
 }
 
 .minigame-image {
@@ -691,13 +758,15 @@ html {
   height: 34px;
   border-radius: 50%;
   background: #1a1a1a;
-  border: 2px solid rgba(255,255,255,0.18);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .minigame-close:hover {
@@ -721,7 +790,9 @@ html {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .minigame-sound:hover {
@@ -729,26 +800,60 @@ html {
   transform: scale(1.12);
 }
 
-.minigame-cta {
-  display: block;
-  position: relative;
-  overflow: hidden;
+/* ── Mobile CTA actions container (chỉ hiện trên màn hình < 768px) ── */
+.minigame-actions-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
-  color: #fff;
-  font-weight: 700;
-  font-size: 26px;
-  text-align: center;
-  text-decoration: none;
-  letter-spacing: 0.5px;
+  margin-top: -42px;
+  padding: 4px 14px 16px 14px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(18, 18, 20) 24px,
+    rgb(18, 18, 20) 100%
+  );
+  border-top: none;
   border-radius: 0 0 16px 16px;
-  animation: popupCtaPulse 2s ease-in-out infinite;
-  transition: filter 0.2s ease, transform 0.15s ease;
+  position: relative;
+  z-index: 5;
 }
 
-/* Floodlight shine sweep every 3s */
-.minigame-cta::before {
+/* ── Mobile CTA buttons (<= 767px): 2 nút stack ~50% width, bo tròn 9999px ── */
+.minigame-cta-mobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  position: relative;
+  overflow: hidden;
+  width: 56%;
+  min-width: 155px;
+  max-width: 200px;
+  padding: 7px 14px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(196, 30, 58, 0.4);
+  animation: popupCtaPulse 2s ease-in-out infinite;
+  transition:
+    filter 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.minigame-cta-mobile::before {
   content: "";
   position: absolute;
   top: 0;
@@ -758,23 +863,73 @@ html {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.25) 50%,
     transparent 100%
   );
   animation: ctaShine 3s ease-in-out 1.5s infinite;
   pointer-events: none;
 }
 
-.minigame-cta:hover {
-  filter: brightness(1.12);
+.minigame-cta-mobile:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.minigame-cta-mobile:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Desktop & Tablet CTA button (>= 768px): DUY NHẤT 1 BUTTON 100% FULL WIDTH ── */
+.minigame-cta-desktop {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  border-radius: 0 0 16px 16px;
+  border: none;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+  animation: popupCtaPulse 2s ease-in-out infinite;
+  transition:
+    filter 0.2s ease,
+    transform 0.15s ease;
+  cursor: pointer;
+}
+
+.minigame-cta-desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  animation: ctaShine 3s ease-in-out 1.5s infinite;
+  pointer-events: none;
+}
+
+.minigame-cta-desktop:hover {
+  filter: brightness(1.15);
   transform: translateY(-1px);
 }
 
-.minigame-cta:active {
+.minigame-cta-desktop:active {
   transform: translateY(0);
 }
 
-/* ── Tablet: portrait 1200×1500 ── */
+/* ── Tablet (>= 768px & < 1280px): Portrait poster 1200×1500 ── */
 @media (min-width: 768px) and (max-width: 1279px) {
   .minigame-modal {
     width: 75vw;
@@ -782,35 +937,86 @@ html {
   .minigame-image {
     max-height: 78vh;
   }
-  .minigame-cta {
-    font-size: 29px;
-    padding: 22px 36px;
+  /* Tắt fade gradient che ảnh trên tablet/desktop */
+  .minigame-image-wrapper::after {
+    display: none !important;
+  }
+  /* Ẩn hoàn toàn container mobile */
+  .minigame-actions-mobile {
+    display: none !important;
+  }
+  /* Hiện DUY NHẤT 1 nút Đặt bàn ngay full width 100% */
+  .minigame-cta-desktop {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    padding: 20px 32px !important;
+    font-size: 26px !important;
+    border-radius: 0 0 16px 16px !important;
   }
 }
 
-/* ── Desktop / PC: landscape 1200×628 ── */
+/* ── Desktop / PC (>= 1280px): Landscape poster 1200×628 ── */
 @media (min-width: 1280px) {
   .minigame-modal {
-    /* Wide landscape — match 1200:628 ≈ 1.91:1 ratio, cap at 820px */
     width: 55vw;
   }
   .minigame-image {
-    /* Landscape images don't need height cap */
     max-height: none;
   }
-  .minigame-cta {
-    font-size: 29px;
-    padding: 24px 40px;
+  /* Tắt fade gradient che ảnh trên tablet/desktop */
+  .minigame-image-wrapper::after {
+    display: none !important;
+  }
+  /* Ẩn hoàn toàn container mobile */
+  .minigame-actions-mobile {
+    display: none !important;
+  }
+  /* Hiện DUY NHẤT 1 nút Đặt bàn ngay full width 100% trỏ về Zalo OA */
+  .minigame-cta-desktop {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    padding: 24px 40px !important;
+    font-size: 28px !important;
+    border-radius: 0 0 16px 16px !important;
   }
 }
 
-/* ── Very small phones ── */
+/* ── Very small phones (< 380px) ── */
 @media (max-width: 380px) {
   .minigame-modal {
-    width: 94vw;
+    width: min(84vw, 290px);
   }
-  .minigame-cta {
-    font-size: 15px;
-    padding: 13px 16px;
+  .minigame-actions-mobile {
+    margin-top: -38px;
+    gap: 7px;
+    padding: 4px 12px 14px 12px;
+  }
+  .minigame-cta-mobile {
+    width: 58%;
+    font-size: 12.5px;
+    padding: 6px 12px;
+  }
+}
+
+/* ── Màn hình có chiều cao thấp (< 700px) trên Mobile ── */
+@media (max-height: 700px) and (max-width: 767px) {
+  .minigame-modal {
+    width: min(74vw, 275px);
+  }
+  .minigame-actions-mobile {
+    margin-top: -36px;
+    gap: 6px;
+    padding: 4px 10px 12px 10px;
+  }
+  .minigame-cta-mobile {
+    width: 60%;
+    font-size: 12px;
+    padding: 6px 10px;
   }
 }
