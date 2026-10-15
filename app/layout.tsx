@@ -17,6 +17,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nhansushihanoi.vn"),
   title: "Nhan Sushi - Japanese Restaurant",
   description:
     "Nhà hàng Nhật Bản cao cấp tại Hà Nội. Sashimi, Sushi, Wagyu và các món ăn Nhật Bản chính thống từ năm 2016.",
