@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { MenuLayout } from "@/components/menu/menu-layout";
 import { MenuHero } from "@/components/menu/menu-hero";
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
+
+export const metadata: Metadata = {
+  title: "Khai Vị",
+  description:
+    "Những món khai vị tinh tế mở đầu bữa ăn tại Nhan Sushi Hà Nội.",
+  alternates: {
+    canonical: "/menu/appetizer",
+  },
+};
 
 const appetizerPages = [
   {

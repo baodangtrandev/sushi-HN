@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { MenuLayout } from "@/components/menu/menu-layout";
 import { MenuHero } from "@/components/menu/menu-hero";
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
+
+export const metadata: Metadata = {
+  title: "Lẩu Nhật",
+  description:
+    "Lẩu Nhật Bản nóng hổi - Shabu Shabu, Sukiyaki tại Nhan Sushi Hà Nội.",
+  alternates: {
+    canonical: "/menu/hotpot",
+  },
+};
 
 const hotpotPages = [
   {

@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { MenuLayout } from "@/components/menu/menu-layout";
 import { MenuHero } from "@/components/menu/menu-hero";
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
+
+export const metadata: Metadata = {
+  title: "Sushi",
+  description:
+    "Sushi truyền thống Nhật Bản với nguyên liệu tươi ngon nhất tại Nhan Sushi Hà Nội.",
+  alternates: {
+    canonical: "/menu/sushi",
+  },
+};
 
 const sushiPages = [
   {

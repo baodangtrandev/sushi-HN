@@ -17,10 +17,17 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nhansushihanoi.vn"),
-  title: "Nhan Sushi - Japanese Restaurant",
+  title: {
+    default: "Nhan Sushi - Japanese Restaurant",
+    template: "%s | Nhan Sushi Hà Nội",
+  },
   description:
     "Nhà hàng Nhật Bản cao cấp tại Hà Nội. Sashimi, Sushi, Wagyu và các món ăn Nhật Bản chính thống từ năm 2016.",
   keywords: "sushi, sashimi, japanese food, hanoi, wagyu, nhan sushi",
+  // Canonical for the home page; every other route overrides this.
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/images/nhan-sushi-logo-favicon.png",
     apple: "/images/nhan-sushi-logo-favicon.png",

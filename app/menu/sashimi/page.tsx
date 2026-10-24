@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { MenuLayout } from "@/components/menu/menu-layout";
 import { MenuHero } from "@/components/menu/menu-hero";
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
+
+export const metadata: Metadata = {
+  title: "Sashimi",
+  description:
+    "Sashimi cá tươi sống cao cấp chế biến theo phong cách Nhật Bản truyền thống tại Nhan Sushi Hà Nội.",
+  alternates: {
+    canonical: "/menu/sashimi",
+  },
+};
 
 const sashimiPages = [
   {

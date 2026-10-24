@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { MenuLayout } from "@/components/menu/menu-layout";
 import { MenuHero } from "@/components/menu/menu-hero";
 import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
+
+export const metadata: Metadata = {
+  title: "Món Đặc Biệt",
+  description:
+    "Những món ăn tinh hoa từ nguyên liệu cao cấp nhất tại Nhan Sushi Hà Nội.",
+  alternates: {
+    canonical: "/menu/special",
+  },
+};
 
 const specialPages = [
   {
