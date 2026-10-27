@@ -28,6 +28,27 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    type: "website",
+    siteName: "Nhan Sushi Hà Nội",
+    locale: "vi_VN",
+    title: "Nhan Sushi - Japanese Restaurant",
+    description:
+      "Nhà hàng Nhật Bản cao cấp tại Hà Nội. Sashimi, Sushi, Wagyu và các món ăn Nhật Bản chính thống từ năm 2016.",
+    url: "/",
+    images: [
+      {
+        url: "/images/og-menu.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nhan Sushi Hà Nội",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/og-menu.jpg"],
+  },
   icons: {
     icon: "/images/nhan-sushi-logo-favicon.png",
     apple: "/images/nhan-sushi-logo-favicon.png",
