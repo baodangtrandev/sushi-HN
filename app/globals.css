@@ -562,3 +562,238 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ========================================
+   EVENT POPUP (16:9 desktop/tablet, 9:16 mobile)
+   ======================================== */
+
+@keyframes eventPopupBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes eventPopupModalIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes eventPopupCtaPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.45),
+      0 0 0 0 rgba(196, 30, 58, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.45),
+      0 0 0 8px rgba(196, 30, 58, 0);
+  }
+}
+
+@keyframes eventPopupCtaShine {
+  0% {
+    transform: translateX(-180%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
+.event-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+  animation: eventPopupBackdropIn 0.35s ease forwards;
+}
+
+.event-popup-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Mobile 9:16: limited by both viewport width and height */
+  width: min(88vw, 400px, calc(86vh * 9 / 16));
+  animation: eventPopupModalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.event-popup-inner {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  background: rgb(18, 18, 20);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.event-popup-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  line-height: 0;
+  /* cqw = % of popup width, so CTAs scale with the image */
+  container-type: inline-size;
+}
+
+.event-popup-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.event-popup-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 10000;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.event-popup-close:hover {
+  background: #c41e3a;
+  transform: scale(1.12) rotate(90deg);
+}
+
+/* Mobile 9:16: 2 stacked CTAs in the empty area on the left, under the date */
+.event-popup-actions {
+  position: absolute;
+  left: 23%;
+  top: 43.5%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5cqw;
+  width: 38cqw;
+  z-index: 5;
+}
+
+.event-popup-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4cqw;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 2.2cqw 2cqw;
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.3cqw;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: eventPopupCtaPulse 2s ease-in-out infinite;
+  transition:
+    filter 0.2s ease,
+    transform 0.15s ease;
+}
+
+.event-popup-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  animation: eventPopupCtaShine 3s ease-in-out 1.5s infinite;
+  pointer-events: none;
+}
+
+.event-popup-cta:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.event-popup-cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.event-popup-cta svg {
+  width: 4cqw;
+  height: 4cqw;
+}
+
+.event-popup-cta-icon {
+  width: 4.4cqw;
+  height: 4.4cqw;
+  object-fit: contain;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Laptop / Desktop / Tablet (>= 768px): 16:9, 2 side-by-side CTAs below the date */
+@media (min-width: 768px) {
+  .event-popup-modal {
+    width: min(92vw, 1100px, calc(88vh * 16 / 9));
+  }
+
+  .event-popup-actions {
+    left: 75.5%;
+    top: 85.5%;
+    flex-direction: row;
+    gap: 1.4cqw;
+    width: 36cqw;
+  }
+
+  .event-popup-cta {
+    padding: 1.2cqw 1.6cqw;
+    font-size: 1.7cqw;
+    gap: 0.8cqw;
+  }
+
+  .event-popup-cta svg {
+    width: 1.9cqw;
+    height: 1.9cqw;
+  }
+
+  .event-popup-cta-icon {
+    width: 2.1cqw;
+    height: 2.1cqw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-popup-cta,
+  .event-popup-cta::before {
+    animation: none;
+  }
+}
