@@ -4,6 +4,7 @@ import { Playfair_Display, Noto_Sans } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { FloatingActions } from "@/components/layout/floating-actions";
+import { EventPopup } from "@/components/layout/event-popup";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -85,6 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {children}
         <FloatingActions />
+        <EventPopup />
         <Analytics />
       </body>
     </html>
