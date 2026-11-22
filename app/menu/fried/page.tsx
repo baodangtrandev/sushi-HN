@@ -5,8 +5,7 @@ import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
 
 export const metadata: Metadata = {
   title: "Món Chiên",
-  description:
-    "Tempura và các món chiên giòn kiểu Nhật tại Nhan Sushi Hà Nội.",
+  description: "Tempura và các món chiên giòn kiểu Nhật tại Nhan Sushi Hà Nội.",
   alternates: {
     canonical: "/menu/fried",
   },

@@ -5,8 +5,7 @@ import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
 
 export const metadata: Metadata = {
   title: "Món Nướng",
-  description:
-    "Các món nướng đậm đà hương vị Nhật Bản tại Nhan Sushi Hà Nội.",
+  description: "Các món nướng đậm đà hương vị Nhật Bản tại Nhan Sushi Hà Nội.",
   alternates: {
     canonical: "/menu/grilled",
   },

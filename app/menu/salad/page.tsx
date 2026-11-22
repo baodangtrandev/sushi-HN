@@ -5,8 +5,7 @@ import { MenuPageGallery } from "@/components/menu/menu-page-gallery";
 
 export const metadata: Metadata = {
   title: "Salad",
-  description:
-    "Salad tươi mát với nguyên liệu cao cấp tại Nhan Sushi Hà Nội.",
+  description: "Salad tươi mát với nguyên liệu cao cấp tại Nhan Sushi Hà Nội.",
   alternates: {
     canonical: "/menu/salad",
   },
